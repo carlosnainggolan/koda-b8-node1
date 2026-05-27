@@ -17,19 +17,27 @@ const list = [
     },
 ];
 
-list.forEach((m) => {
-  console.log(m.name);
+function generateMusicList (list) {
+  list.forEach((m) => {
+    console.log(m.name);
 
-  if (!fs.existsSync(m.name)) {
-    fs.mkdirSync(m.name);
-  }
+    if (!fs.existsSync(m.name)) {
+      fs.mkdirSync(m.name);
+    }
 
-  m.songs.forEach((list) => {
-    console.log(list);
-    fs.writeFile(`./${m.name}/${list}.mp3`, m.name, "utf8", (err) => {
-      if (!err) {
-        console.log("Berhasil");
-      }
+    m.songs.forEach((list) => {
+      console.log(list);
+      fs.writeFile(`./${m.name}/${list}.mp3`, m.name, "utf8", (err) => {
+        if (!err) {
+          console.log("Berhasil");
+        }
+      });
     });
   });
-});
+}
+
+if (require.main === module) {
+  generateMusicList(list);
+}
+
+module.exports = generateMusicList;
