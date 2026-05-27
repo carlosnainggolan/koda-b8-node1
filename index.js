@@ -40,4 +40,4 @@ if (require.main === module) {
   generateMusicList(list);
 }
 
-module.exports = generateMusicList;
+module.exports = { generateMusicList, list };
