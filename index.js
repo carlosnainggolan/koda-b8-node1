@@ -1,4 +1,9 @@
 const fs = require("node:fs");
+
+/**
+ * Daftar musik dengan struktur nama band dan lagu-lagunya.
+ * @type {Array<{id: number, name: string, songs: string[]}>}
+ */
 const list = [
     {
         id: 1,
@@ -17,6 +22,11 @@ const list = [
     },
 ];
 
+/**
+ * Fungsi untuk membuat folder dan file lagu berdasarkan list yang diberikan.
+ * @param {Array} list - Array of music objects, each containing a name and an array of songs.
+ * @return {Array} - Mengembalikan list yang sama setelah proses pembuatan folder dan file selesai.
+ */
 function generateMusicList (list) {
   list.forEach((m) => {
     console.log(m.name);
@@ -34,6 +44,7 @@ function generateMusicList (list) {
       });
     });
   });
+  return list;
 }
 
 if (require.main === module) {
